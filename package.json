@@ -12,8 +12,9 @@
   },
   "dependencies": {
     "@apollo/client": "^3.8.6",
+    "@emotion/styled": "^11.11.0",
     "@mui/material": "^5.14.14",
-    "@mui/styled-engine-sc": "6.0.0-alpha.2",
+    "@mui/styled-engine": "npm:@mui/styled-engine-sc@latest",
     "graphql": "^16.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -38,5 +39,8 @@
     "ts-jest": "^29.1.1",
     "typescript": "^5.0.2",
     "vite": "^4.4.5"
+  },
+  "resolutions": {
+    "@mui/styled-engine": "npm:@mui/styled-engine-sc@latest"
   }
 }
