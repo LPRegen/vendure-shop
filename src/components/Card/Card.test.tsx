@@ -22,8 +22,9 @@ describe('Card comp', () => {
 
   it('Image contains src', () => {
     render(<Card {...mockedCard} />);
-    const imgEl = screen.getByAltText('an image');
+    const imgEl = screen.getByRole('img') as HTMLImageElement;
     expect(imgEl).toBeInTheDocument();
     expect(imgEl).toHaveAttribute('src');
   });
+  // TEST: alt att
 });
