@@ -18,6 +18,8 @@ export interface CardProps {
 // FIX: Style or remove
 const CardSc = styled(CardMui)({});
 
+// NOTE: Check if I can give styles to img in CardMedia
+
 const CardContent = styled(CardContentMui)({
   display: 'grid',
   gap: '0.4rem',
@@ -32,13 +34,15 @@ const CardActions = styled(CardActionsMui)({
   },
 });
 
-// TODO: Add link to product's page.
+// NOTE: Add link to product's page.
+
+// TODO: Add GQL
 
 export const Card = ({ img, title, description, price }: CardProps) => {
   return (
     <CardSc>
       <CardMedia title={img.alt}>
-        <img src={img.src} alt={img.alt} height={240} width={'100%'} />
+        <img src={img.src} alt={img.alt} width={'100%'} />
       </CardMedia>
 
       <CardContent>

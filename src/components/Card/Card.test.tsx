@@ -36,4 +36,5 @@ describe('Card comp', () => {
       expect(imgEl).toHaveAttribute('alt');
     });
   });
+  // TEST: for query
 });
