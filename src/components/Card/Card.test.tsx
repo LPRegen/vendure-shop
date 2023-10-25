@@ -20,11 +20,20 @@ describe('Card comp', () => {
     expect(cardEl).toBeInTheDocument();
   });
 
-  it('Image contains src', () => {
-    render(<Card {...mockedCard} />);
-    const imgEl = screen.getByRole('img') as HTMLImageElement;
-    expect(imgEl).toBeInTheDocument();
-    expect(imgEl).toHaveAttribute('src');
+  describe('Card image', () => {
+    it('Image contains src', () => {
+      render(<Card {...mockedCard} />);
+
+      const imgEl = screen.getByRole('img') as HTMLImageElement;
+      expect(imgEl).toBeInTheDocument();
+      expect(imgEl).toHaveAttribute('src');
+    });
+
+    it('Image has alt attribute', () => {
+      render(<Card {...mockedCard} />);
+
+      const imgEl = screen.getByRole('img') as HTMLImageElement;
+      expect(imgEl).toHaveAttribute('alt');
+    });
   });
-  // TEST: alt att
 });

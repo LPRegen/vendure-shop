@@ -32,6 +32,8 @@ const CardActions = styled(CardActionsMui)({
   },
 });
 
+// TODO: Add link to product's page.
+
 export const Card = ({ img, title, description, price }: CardProps) => {
   return (
     <CardSc>
