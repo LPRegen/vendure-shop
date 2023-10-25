@@ -16,9 +16,11 @@ const ButtonSc = styled(ButtonBase)({
     backgroundColor: '#42a5f5',
   },
 
-  // TODO: add styles for kb
+  '&:focus-visible': {
+    outline: '2px solid #1046ea',
+  },
 });
 
-export const Button = ({ children }: ButtonProps) => {
-  return <ButtonSc>{children}</ButtonSc>;
+export const Button = ({ children, onClick }: ButtonProps) => {
+  return <ButtonSc onClick={onClick}>{children}</ButtonSc>;
 };
