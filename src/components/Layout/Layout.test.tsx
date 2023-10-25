@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react';
 import { Layout } from './Layout';
 
 describe('Layout comp', () => {
-  it('Renders item', () => {
+  it('Render component correctly', () => {
     render(
       <Layout>
         <div>Child component</div>
