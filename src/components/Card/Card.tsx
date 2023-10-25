@@ -49,6 +49,7 @@ export const Card = ({ img, title, description, price }: CardProps) => {
         <Typography variant="h4" component="h2">
           {title}
         </Typography>
+        {/* FIX: Set max lines for displayed description */}
         <Typography>{description}</Typography>
       </CardContent>
       <CardActions>
