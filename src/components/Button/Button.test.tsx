@@ -36,7 +36,6 @@ describe('Button comp', () => {
   //   expect(el.).toHaveBeenCalled();
   // });
 
-  // TEST: When it's disabled, handleClick isn't executed.
   it('Doesnt executes handler onClick if btn is disabled', async () => {
     const handleClick = jest.fn();
     const user = userEvent.setup();
@@ -52,5 +51,4 @@ describe('Button comp', () => {
     await user.click(el);
     expect(handleClick).toHaveBeenCalled();
   });
-  // TEST: Has corresponding role
 });
