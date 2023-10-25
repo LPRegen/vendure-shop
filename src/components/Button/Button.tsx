@@ -6,11 +6,11 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 
 const ButtonSc = styled(ButtonBase)({
   backgroundColor: '#90caf9',
-  padding: '0.5rem 1rem',
+  padding: '0.5rem 1.4rem',
   margin: '0.2rem 0.4rem',
   borderRadius: '4px',
   fontSize: '1.2rem',
-  fontWeight: '600',
+  fontWeight: '500',
   transition: 'background-color 0.6s',
   '&:hover': {
     backgroundColor: '#42a5f5',
