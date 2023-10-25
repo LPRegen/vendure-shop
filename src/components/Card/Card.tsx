@@ -1,11 +1,11 @@
 import {
-  CardActions,
+  CardActions as CardActionsMui,
   CardContent as CardContentMui,
   CardMedia,
   Card as CardMui,
   Typography,
+  styled,
 } from '@mui/material';
-import { styled } from '@mui/material';
 import { Button } from '../Button/Button';
 
 export interface CardProps {
@@ -23,6 +23,15 @@ const CardContent = styled(CardContentMui)({
   gap: '0.4rem',
 });
 
+const CardActions = styled(CardActionsMui)({
+  display: 'flex',
+  justifyContent: 'space-around',
+  ':first-child': {
+    fontSize: '1.2rem',
+    fontWeight: '500',
+  },
+});
+
 export const Card = ({ img, title, description, price }: CardProps) => {
   return (
     <CardSc>
@@ -37,7 +46,7 @@ export const Card = ({ img, title, description, price }: CardProps) => {
         <Typography>{description}</Typography>
       </CardContent>
       <CardActions>
-        <Typography>{price}</Typography>
+        <Typography>$ {price}</Typography>
         <Button>Buy</Button>
       </CardActions>
     </CardSc>
