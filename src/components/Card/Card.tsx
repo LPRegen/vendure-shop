@@ -1,6 +1,6 @@
 import {
   CardActions,
-  CardContent,
+  CardContent as CardContentMui,
   CardMedia,
   Card as CardMui,
   Typography,
@@ -15,13 +15,19 @@ export interface CardProps {
   price: number;
 }
 
+// FIX: Style or remove
 const CardSc = styled(CardMui)({});
+
+const CardContent = styled(CardContentMui)({
+  display: 'grid',
+  gap: '0.4rem',
+});
 
 export const Card = ({ img, title, description, price }: CardProps) => {
   return (
     <CardSc>
-      <CardMedia sx={{ height: 240 }} title={img.alt}>
-        <img src={img.src} alt={img.alt} />
+      <CardMedia title={img.alt}>
+        <img src={img.src} alt={img.alt} height={240} width={'100%'} />
       </CardMedia>
 
       <CardContent>
