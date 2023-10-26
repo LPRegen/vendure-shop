@@ -34,6 +34,13 @@ const CardActions = styled(CardActionsMui)({
   },
 });
 
+const Description = styled(Typography)({
+  display: '-webkit-box',
+  overflow: 'hidden',
+  WebkitBoxOrient: 'vertical',
+  WebkitLineClamp: 3,
+});
+
 // NOTE: Add link to product's page.
 
 // TODO: Add GQL
@@ -49,8 +56,7 @@ export const Card = ({ img, title, description, price }: CardProps) => {
         <Typography variant="h4" component="h2">
           {title}
         </Typography>
-        {/* FIX: Set max lines for displayed description */}
-        <Typography>{description}</Typography>
+        <Description>{description}</Description>
       </CardContent>
       <CardActions>
         <Typography>$ {price}</Typography>
