@@ -35,7 +35,7 @@ const Description = styled(Typography)({
 
 // NOTE: Add link to product's page.
 
-export const Card = ({ img, title, description, price }: CardProps) => {
+export const Card = ({ img, name, description, price }: CardProps) => {
   return (
     <CardSc>
       <CardMedia title={img.alt}>
@@ -44,7 +44,7 @@ export const Card = ({ img, title, description, price }: CardProps) => {
 
       <CardContent>
         <Typography variant="h4" component="h2">
-          {title}
+          {name}
         </Typography>
         <Description>{description}</Description>
       </CardContent>

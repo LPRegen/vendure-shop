@@ -1,6 +1,6 @@
 export interface CardProps {
   img: React.ImgHTMLAttributes<HTMLImageElement>;
-  title: string;
+  name: string;
   description: string;
   price: number;
 }
