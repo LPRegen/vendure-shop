@@ -1,9 +1,10 @@
 import { render, screen } from '@testing-library/react';
-import { Card, CardProps } from './Card';
+import { CardProps } from '../../types';
+import { Card } from './Card';
 
 const mockedCard: CardProps = {
   img: {
-    src: '',
+    src: 'https://demo.vendure.io/assets/source/b6/derick-david-409858-unsplash.jpg',
     alt: 'an image',
   },
   title: 'Card title',
@@ -14,7 +15,15 @@ const mockedCard: CardProps = {
 
 describe('Card comp', () => {
   it('Renders component', () => {
-    render(<Card data-testid="card" {...mockedCard} />);
+    render(
+      <Card
+        data-testid="card"
+        img={mockedCard.img}
+        title={mockedCard.title}
+        description={mockedCard.description}
+        price={mockedCard.price}
+      />
+    );
 
     const cardEl = screen.getByTestId('card');
     expect(cardEl).toBeInTheDocument();
@@ -25,7 +34,6 @@ describe('Card comp', () => {
       render(<Card {...mockedCard} />);
 
       const imgEl = screen.getByRole('img') as HTMLImageElement;
-      expect(imgEl).toBeInTheDocument();
       expect(imgEl).toHaveAttribute('src');
     });
 
