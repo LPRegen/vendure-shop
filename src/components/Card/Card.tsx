@@ -6,19 +6,11 @@ import {
   Typography,
   styled,
 } from '@mui/material';
+import { CardProps } from '../../types';
 import { Button } from '../Button/Button';
-
-export interface CardProps {
-  img: React.ImgHTMLAttributes<HTMLImageElement>;
-  title: string;
-  description: string;
-  price: number;
-}
 
 // FIX: Style or remove
 const CardSc = styled(CardMui)({});
-
-// NOTE: Check if I can give styles to img in CardMedia
 
 const CardContent = styled(CardContentMui)({
   display: 'grid',
@@ -42,8 +34,6 @@ const Description = styled(Typography)({
 });
 
 // NOTE: Add link to product's page.
-
-// TODO: Add GQL
 
 export const Card = ({ img, title, description, price }: CardProps) => {
   return (
