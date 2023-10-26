@@ -5,6 +5,8 @@ import { Button } from './Button';
 describe('Button comp', () => {
   it('Render component', () => {
     render(<Button>Add to cart</Button>);
+    const el = screen.getByRole('button');
+    expect(el).toBeInTheDocument();
   });
 
   it('Has correct aria-label', () => {
