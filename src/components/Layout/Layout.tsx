@@ -7,7 +7,7 @@ interface LayoutProps {
 }
 
 const Container = styled(Grid)(({ theme }) => ({
-  backgroundColor: 'black',
+  backgroundColor: '#0D1537',
   [theme.breakpoints.down('md')]: {
     padding: '2rem 1rem',
   },
