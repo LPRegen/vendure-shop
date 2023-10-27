@@ -42,7 +42,7 @@ const Description = styled(Typography)({
   WebkitLineClamp: 3,
 });
 
-// NOTE: Add link to product's page.
+// NTH: Add link to product's page.
 
 export const Card = ({
   featuredAsset,
