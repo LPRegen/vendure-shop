@@ -3,11 +3,12 @@ import { CardProps } from '../../types';
 import { Card } from './Card';
 
 const mockedCard: CardProps = {
-  img: {
-    src: 'https://demo.vendure.io/assets/source/b6/derick-david-409858-unsplash.jpg',
-    alt: 'an image',
+  featuredAsset: {
+    source:
+      'https://demo.vendure.io/assets/source/b6/derick-david-409858-unsplash.jpg',
+    name: 'an image',
   },
-  title: 'Card title',
+  name: 'Card title',
   description:
     'Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.',
   price: 853.79,
@@ -15,15 +16,7 @@ const mockedCard: CardProps = {
 
 describe('Card comp', () => {
   it('Renders component', () => {
-    render(
-      <Card
-        data-testid="card"
-        img={mockedCard.img}
-        title={mockedCard.title}
-        description={mockedCard.description}
-        price={mockedCard.price}
-      />
-    );
+    render(<Card {...mockedCard} />);
 
     const cardEl = screen.getByTestId('card');
     expect(cardEl).toBeInTheDocument();
