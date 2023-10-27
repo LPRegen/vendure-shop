@@ -2,7 +2,7 @@ import { gql } from '@apollo/client';
 
 export const GET_PRODUCT_LIST = gql`
   query {
-    products(options: { take: 10 }) {
+    products(options: { take: 12 }) {
       items {
         id
         name
@@ -20,3 +20,5 @@ export const GET_PRODUCT_LIST = gql`
     }
   }
 `;
+
+// TODO: include fragments
