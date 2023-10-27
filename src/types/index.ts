@@ -7,3 +7,8 @@ export interface CardProps {
   description: string;
   price: number;
 }
+
+export interface OrderProps {
+  customer: string;
+  total: number;
+}
