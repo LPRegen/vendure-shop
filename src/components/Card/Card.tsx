@@ -1,7 +1,7 @@
 import {
   CardActions as CardActionsMui,
   CardContent as CardContentMui,
-  CardMedia,
+  CardMedia as CardMediaMui,
   Card as CardMui,
   Typography,
   styled,
@@ -11,6 +11,15 @@ import { Button } from '../Button/Button';
 
 // FIX: Style or remove
 const CardSc = styled(CardMui)({});
+
+const CardMedia = styled(CardMediaMui)({
+  height: '200px',
+  '> img': {
+    objectFit: 'cover',
+    height: '100%',
+    width: '100%',
+  },
+});
 
 const CardContent = styled(CardContentMui)({
   display: 'grid',
@@ -35,15 +44,20 @@ const Description = styled(Typography)({
 
 // NOTE: Add link to product's page.
 
-export const Card = ({ img, name, description, price }: CardProps) => {
+export const Card = ({
+  featuredAsset,
+  name,
+  description,
+  price,
+}: CardProps) => {
   return (
     <CardSc>
-      <CardMedia title={img.alt}>
-        <img src={img.src} alt={img.alt} width={'100%'} />
+      <CardMedia title={featuredAsset.name}>
+        <img src={featuredAsset.source} alt={featuredAsset.name} />
       </CardMedia>
 
       <CardContent>
-        <Typography variant="h4" component="h2">
+        <Typography variant="h5" component="h2">
           {name}
         </Typography>
         <Description>{description}</Description>
