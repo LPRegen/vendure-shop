@@ -51,7 +51,7 @@ export const Card = ({
   price,
 }: CardProps) => {
   return (
-    <CardSc>
+    <CardSc data-testid="card">
       <CardMedia title={featuredAsset.name}>
         <img src={featuredAsset.source} alt={featuredAsset.name} />
       </CardMedia>
