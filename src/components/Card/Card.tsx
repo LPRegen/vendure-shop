@@ -48,7 +48,7 @@ export const Card = ({
   featuredAsset,
   name,
   description,
-  price,
+  variants,
 }: CardProps) => {
   return (
     <CardSc data-testid="card">
@@ -63,8 +63,8 @@ export const Card = ({
         <Description>{description}</Description>
       </CardContent>
       <CardActions>
-        <Typography>$ {price}</Typography>
-        <Button>Buy</Button>
+        <Typography>$ {variants[0].price}</Typography>
+        <Button variantId={variants[0].id}>Buy</Button>
       </CardActions>
     </CardSc>
   );

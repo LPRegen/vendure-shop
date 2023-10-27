@@ -1,3 +1,8 @@
+interface Variants {
+  id: string;
+  price: number;
+}
+
 export interface CardProps {
   featuredAsset: {
     source: string;
@@ -5,7 +10,7 @@ export interface CardProps {
   };
   name: string;
   description: string;
-  price: number;
+  variants: Array<Variants>;
 }
 
 export interface OrderProps {
