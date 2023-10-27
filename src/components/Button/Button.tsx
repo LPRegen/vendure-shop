@@ -22,5 +22,6 @@ const ButtonSc = styled(ButtonBase)({
 });
 
 export const Button = ({ children, onClick }: ButtonProps) => {
+  // NTH: Add icons
   return <ButtonSc onClick={onClick}>{children}</ButtonSc>;
 };
