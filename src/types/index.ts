@@ -9,6 +9,7 @@ interface Variants {
 }
 
 export interface CardProps {
+  id: string;
   featuredAsset: Asset;
   name: string;
   description: string;
