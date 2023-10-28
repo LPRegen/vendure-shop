@@ -14,8 +14,3 @@ export interface CardProps {
   description: string;
   variants: Array<Variants>;
 }
-
-export interface OrderProps {
-  customer: string;
-  total: number;
-}

@@ -27,7 +27,7 @@ export function Header() {
         aria-hidden
       />
       <div>
-        <Order customer="manu" total={400} />
+        <Order />
       </div>
     </Navbar>
   );
