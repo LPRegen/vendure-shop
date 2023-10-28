@@ -1,7 +1,7 @@
 import { gql } from '@apollo/client';
 
 export const GET_PRODUCT_LIST = gql`
-  query {
+  query get_product_list {
     products(options: { take: 12 }) {
       items {
         id
@@ -17,6 +17,15 @@ export const GET_PRODUCT_LIST = gql`
           productId
         }
       }
+    }
+  }
+`;
+
+export const GET_ACTIVE_ORDER = gql`
+  query acocunt_details {
+    activeOrder {
+      id
+      total
     }
   }
 `;
