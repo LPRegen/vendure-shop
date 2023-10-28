@@ -22,7 +22,7 @@ export const GET_PRODUCT_LIST = gql`
 `;
 
 export const GET_ACTIVE_ORDER = gql`
-  query acocunt_details {
+  query active_order_details {
     activeOrder {
       id
       total
