@@ -1,6 +1,7 @@
-import styled from 'styled-components';
-import { OrderProps } from '../../types';
+import { useQuery } from '@apollo/client';
 import { Typography } from '@mui/material';
+import styled from 'styled-components';
+import { GET_ACTIVE_ORDER } from '../../graphql/queries';
 
 const Container = styled.div`
   display: grid;
@@ -14,13 +15,23 @@ const Container = styled.div`
 
 // TODO: Improve how info is displayed
 
-export const Order = ({ customer, total }: OrderProps) => {
+export const Order = () => {
+  const { loading, error, data } = useQuery(GET_ACTIVE_ORDER);
+
   return (
     <Container data-testid="order">
-      <Typography variant="h4" component="h1">
-        {customer}
-      </Typography>
-      <Typography variant="subtitle1">$ {total}</Typography>
+      {loading ? (
+        <span>Loading info</span>
+      ) : (
+        <>
+          <Typography variant="h5" component="h1">
+            Total:
+          </Typography>
+          <Typography variant="subtitle1">
+            $ {data.activeOrder.total}
+          </Typography>
+        </>
+      )}
     </Container>
   );
 };
