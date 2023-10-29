@@ -2,6 +2,7 @@ import { ButtonBase, styled } from '@mui/material';
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
+  label: string;
 }
 
 const ButtonSc = styled(ButtonBase)({
@@ -21,7 +22,11 @@ const ButtonSc = styled(ButtonBase)({
   },
 });
 
-export const Button = ({ children, onClick }: ButtonProps) => {
+export const Button = ({ children, onClick, label, title }: ButtonProps) => {
   // NTH: Add icons
-  return <ButtonSc onClick={onClick}>{children}</ButtonSc>;
+  return (
+    <ButtonSc onClick={onClick} aria-label={label} title={title}>
+      {children}
+    </ButtonSc>
+  );
 };
