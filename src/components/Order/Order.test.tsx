@@ -5,13 +5,9 @@ import { GET_ACTIVE_ORDER } from '../../graphql/queries';
 import { ActiveOrder } from '../../types';
 import { Order } from './Order';
 
-interface MockData {
-  getActiveOrder: ActiveOrder;
-}
-
 const mocks: Array<{
   request: { query: typeof GET_ACTIVE_ORDER };
-  result: { data: MockData };
+  result: { data: ActiveOrder };
 }> = [
   {
     request: {
@@ -19,11 +15,9 @@ const mocks: Array<{
     },
     result: {
       data: {
-        getActiveOrder: {
-          activeOrder: {
-            id: '1',
-            total: 200,
-          },
+        activeOrder: {
+          id: '1',
+          total: 200,
         },
       },
     },
@@ -43,20 +37,19 @@ const mockError: Array<{
 ];
 
 describe('Order comp', () => {
-  // TEST: Try mocking the process to add a product before checking the acc.
-  // it('Renders component', async () => {
-  //   render(
-  //     <MockedProvider mocks={mocks} addTypename={false}>
-  //       <Order />
-  //     </MockedProvider>
-  //   );
-  //
-  //   const totalMsg = await screen.findByText('Total:');
-  //   expect(totalMsg).toBeInTheDocument();
-  //
-  //   const totalAmount = screen.getByText('$ 200');
-  //   expect(totalAmount).toBeInTheDocument();
-  // });
+  it('Renders component', async () => {
+    render(
+      <MockedProvider mocks={mocks} addTypename={false}>
+        <Order />
+      </MockedProvider>
+    );
+
+    const totalMsg = await screen.findByText('Total:');
+    expect(totalMsg).toBeInTheDocument();
+
+    const totalAmount = screen.getByText('$ 200');
+    expect(totalAmount).toBeInTheDocument();
+  });
 
   it('Informs loading state', () => {
     render(
