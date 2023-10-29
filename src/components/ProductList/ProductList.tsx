@@ -4,7 +4,6 @@ import { Card } from '../Card/Card';
 import { ItemsData } from '../../types';
 
 export const ProducList = () => {
-  // FIX: move the useQuery to its own file `ProducList`
   const { loading, error, data } = useQuery<ItemsData>(GET_PRODUCT_LIST, {});
 
   if (loading) {
