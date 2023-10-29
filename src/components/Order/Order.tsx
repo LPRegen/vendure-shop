@@ -49,7 +49,7 @@ export const Order = () => {
         <Typography variant="h5" component="h1">
           Total:
         </Typography>
-        <Typography variant="subtitle1">$ {data.activeOrder?.total}</Typography>
+        <Typography variant="subtitle1">$ {data.activeOrder.total}</Typography>
       </>
     </Container>
   );
