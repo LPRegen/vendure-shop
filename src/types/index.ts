@@ -8,6 +8,13 @@ interface Variants {
   price: number;
 }
 
+export interface ActiveOrder {
+  activeOrder: {
+    id: string;
+    total: number;
+  };
+}
+
 export interface CardProps {
   id: string;
   featuredAsset: Asset;

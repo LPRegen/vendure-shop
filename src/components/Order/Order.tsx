@@ -2,6 +2,7 @@ import { useQuery } from '@apollo/client';
 import { Typography } from '@mui/material';
 import styled from 'styled-components';
 import { GET_ACTIVE_ORDER } from '../../graphql/queries';
+import { ActiveOrder } from '../../types';
 
 const Container = styled.div`
   display: grid;
@@ -16,22 +17,40 @@ const Container = styled.div`
 // TODO: Improve how info is displayed
 
 export const Order = () => {
-  const { loading, error, data } = useQuery(GET_ACTIVE_ORDER);
+  const { loading, error, data } = useQuery<ActiveOrder>(GET_ACTIVE_ORDER);
+
+  if (loading) {
+    return (
+      <Container data-testid="order">
+        <span>Loading info</span>
+      </Container>
+    );
+  }
+
+  if (error) {
+    return (
+      <Container data-testid="order">
+        <Typography variant="h5">Error loading order</Typography>
+      </Container>
+    );
+  }
+
+  if (!data || !data.activeOrder) {
+    return (
+      <Container data-testid="order">
+        <Typography variant="h5">No active order available</Typography>
+      </Container>
+    );
+  }
 
   return (
     <Container data-testid="order">
-      {loading ? (
-        <span>Loading info</span>
-      ) : (
-        <>
-          <Typography variant="h5" component="h1">
-            Total:
-          </Typography>
-          <Typography variant="subtitle1">
-            $ {data.activeOrder.total}
-          </Typography>
-        </>
-      )}
+      <>
+        <Typography variant="h5" component="h1">
+          Total:
+        </Typography>
+        <Typography variant="subtitle1">$ {data.activeOrder?.total}</Typography>
+      </>
     </Container>
   );
 };
