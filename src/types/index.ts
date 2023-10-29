@@ -22,3 +22,9 @@ export interface CardProps {
   description: string;
   variants: Array<Variants>;
 }
+
+export interface ItemsData {
+  products: {
+    items: Array<CardProps>;
+  };
+}
