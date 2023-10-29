@@ -5,7 +5,7 @@ import { GET_PRODUCT_LIST } from '../../graphql/queries';
 import { ItemsData } from '../../types';
 import { Card } from '../Card/Card';
 
-export const ProducList = () => {
+export const ProductList = () => {
   const { loading, error, data } = useQuery<ItemsData>(GET_PRODUCT_LIST, {});
 
   const Container = styled(Grid)(({ theme }) => ({
