@@ -1,3 +1,4 @@
+import { useMutation } from '@apollo/client';
 import {
   CardActions as CardActionsMui,
   CardContent as CardContentMui,
@@ -6,6 +7,8 @@ import {
   Typography,
   styled,
 } from '@mui/material';
+import { ADD_PRODUCT_TO_ORDER } from '../../graphql/mutations';
+import { GET_ACTIVE_ORDER } from '../../graphql/queries';
 import { CardProps } from '../../types';
 import { Button } from '../Button/Button';
 
@@ -51,6 +54,16 @@ export const Card = ({
   description,
   variants,
 }: CardProps) => {
+  const [addProductToOrder] = useMutation(ADD_PRODUCT_TO_ORDER);
+
+  const handleAddToOrder = () => {
+    const productId = id;
+    addProductToOrder({
+      variables: { productId },
+      refetchQueries: [{ query: GET_ACTIVE_ORDER }],
+    });
+  };
+
   return (
     <CardSc data-testid="card">
       <CardMedia title={featuredAsset.name}>
