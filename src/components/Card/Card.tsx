@@ -45,6 +45,7 @@ const Description = styled(Typography)({
 // NTH: Add link to product's page.
 
 export const Card = ({
+  id,
   featuredAsset,
   name,
   description,
@@ -64,7 +65,13 @@ export const Card = ({
       </CardContent>
       <CardActions>
         <Typography>$ {variants[0].price}</Typography>
-        <Button variantId={variants[0].id}>Buy</Button>
+        <Button
+          onClick={handleAddToOrder}
+          label={`Buy ${name}`}
+          title={`Buy ${name}`}
+        >
+          Buy
+        </Button>
       </CardActions>
     </CardSc>
   );
