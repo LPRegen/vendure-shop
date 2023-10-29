@@ -5,21 +5,21 @@ import { GET_PRODUCT_LIST } from '../../graphql/queries';
 import { ItemsData } from '../../types';
 import { Card } from '../Card/Card';
 
+const Container = styled(Grid)(({ theme }) => ({
+  backgroundColor: '#0D1537',
+  [theme.breakpoints.down('md')]: {
+    padding: '2rem 1rem',
+  },
+  [theme.breakpoints.up('md')]: {
+    padding: '2rem 2rem',
+  },
+  [theme.breakpoints.up('lg')]: {
+    padding: '3rem 4.5rem',
+  },
+}));
+
 export const ProductList = () => {
   const { loading, error, data } = useQuery<ItemsData>(GET_PRODUCT_LIST, {});
-
-  const Container = styled(Grid)(({ theme }) => ({
-    backgroundColor: '#0D1537',
-    [theme.breakpoints.down('md')]: {
-      padding: '2rem 1rem',
-    },
-    [theme.breakpoints.up('md')]: {
-      padding: '2rem 2rem',
-    },
-    [theme.breakpoints.up('lg')]: {
-      padding: '3rem 4.5rem',
-    },
-  }));
 
   if (loading) {
     return <div>Loading products...</div>;
