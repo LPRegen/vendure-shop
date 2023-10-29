@@ -14,7 +14,6 @@ export const GET_PRODUCT_LIST = gql`
         variants {
           id
           price
-          productId
         }
       }
     }
