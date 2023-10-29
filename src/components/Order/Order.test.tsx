@@ -81,7 +81,7 @@ describe('Order comp', () => {
       </MockedProvider>
     );
 
-    const totalMsg = await screen.findByText('No active order available');
-    expect(totalMsg).toBeInTheDocument();
+    const noOrderMsg = await screen.findByText('No active order available');
+    expect(noOrderMsg).toBeInTheDocument();
   });
 });
