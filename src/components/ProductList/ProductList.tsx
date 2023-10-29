@@ -29,15 +29,18 @@ export const ProductList = () => {
     return <div>Error loading products</div>;
   }
 
-  if (!data) {
-    return <div>There is no data available</div>;
-  }
-
   return (
     <Container container spacing={2}>
       {data?.products.items.map(
         ({ id, featuredAsset, name, description, variants }) => (
-          <Grid xs={12} sm={6} md={4} lg={3} key={id}>
+          <Grid
+            data-testid="grid-container"
+            xs={12}
+            sm={6}
+            md={4}
+            lg={3}
+            key={id}
+          >
             <Card
               id={id}
               variants={variants}
