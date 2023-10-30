@@ -3,7 +3,7 @@ import { render, screen } from '@testing-library/react';
 import {
   productListMockError,
   productListMockSuccess,
-} from '../../mocks/productList';
+} from '../../mocks/productListMock';
 import { ProductList } from './ProductList';
 
 describe('ProductList comp', () => {
