@@ -10,6 +10,7 @@ export const GET_PRODUCT_LIST = gql`
   ${ASSET_DETAILS}
   ${PRODUCT_DETAILS}
   ${VARIANT_DETAILS}
+
   query get_product_list {
     products(options: { take: 12 }) {
       items {
@@ -27,6 +28,7 @@ export const GET_PRODUCT_LIST = gql`
 
 export const GET_ACTIVE_ORDER = gql`
   ${ORDER_DETAILS}
+
   query active_order_details {
     activeOrder {
       ...OrderDetails
