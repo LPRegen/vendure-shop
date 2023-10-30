@@ -10,6 +10,7 @@ import {
 import { ADD_PRODUCT_TO_ORDER } from '../../graphql/mutations';
 import { GET_ACTIVE_ORDER } from '../../graphql/queries';
 import { CardProps } from '../../types';
+import { formatPrice } from '../../utils/formatPrice';
 import { Button } from '../Button/Button';
 
 // FIX: Style or remove
@@ -62,13 +63,6 @@ export const Card = ({
       variables: { productId },
       refetchQueries: [{ query: GET_ACTIVE_ORDER }],
     });
-  };
-
-  const formatPrice = (price: number): string => {
-    return new Intl.NumberFormat('en-US', {
-      style: 'currency',
-      currency: 'USD',
-    }).format(price);
   };
 
   return (
