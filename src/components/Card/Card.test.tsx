@@ -1,22 +1,21 @@
 import { render, screen } from '@testing-library/react';
-import { CardProps } from '../../types';
 import { Card } from './Card';
-
-const mockedCard: CardProps = {
-  featuredAsset: {
-    source:
-      'https://demo.vendure.io/assets/source/b6/derick-david-409858-unsplash.jpg',
-    name: 'an image',
-  },
-  name: 'Card title',
-  description:
-    'Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.',
-  price: 853.79,
-};
+import { cardMockSuccess } from '../../mocks/cardMock';
+import { MockedProvider } from '@apollo/client/testing';
 
 describe('Card comp', () => {
   it('Renders component', () => {
-    render(<Card {...mockedCard} />);
+    render(
+      <MockedProvider mocks={cardMockSuccess} addTypename={false}>
+        <Card
+          name={cardMockSuccess[0].result.data.name}
+          id={cardMockSuccess[0].result.data.id}
+          featuredAsset={cardMockSuccess[0].result.data.featuredAsset}
+          description={cardMockSuccess[0].result.data.description}
+          variants={cardMockSuccess[0].result.data.variants}
+        />
+      </MockedProvider>
+    );
 
     const cardEl = screen.getByTestId('card');
     expect(cardEl).toBeInTheDocument();
@@ -24,18 +23,37 @@ describe('Card comp', () => {
 
   describe('Card image', () => {
     it('Image contains src', () => {
-      render(<Card {...mockedCard} />);
+      render(
+        <MockedProvider mocks={cardMockSuccess} addTypename={false}>
+          <Card
+            name={cardMockSuccess[0].result.data.name}
+            id={cardMockSuccess[0].result.data.id}
+            featuredAsset={cardMockSuccess[0].result.data.featuredAsset}
+            description={cardMockSuccess[0].result.data.description}
+            variants={cardMockSuccess[0].result.data.variants}
+          />
+        </MockedProvider>
+      );
 
       const imgEl = screen.getByRole('img') as HTMLImageElement;
       expect(imgEl).toHaveAttribute('src');
     });
 
     it('Image has alt attribute', () => {
-      render(<Card {...mockedCard} />);
+      render(
+        <MockedProvider mocks={cardMockSuccess} addTypename={false}>
+          <Card
+            name={cardMockSuccess[0].result.data.name}
+            id={cardMockSuccess[0].result.data.id}
+            featuredAsset={cardMockSuccess[0].result.data.featuredAsset}
+            description={cardMockSuccess[0].result.data.description}
+            variants={cardMockSuccess[0].result.data.variants}
+          />
+        </MockedProvider>
+      );
 
       const imgEl = screen.getByRole('img') as HTMLImageElement;
       expect(imgEl).toHaveAttribute('alt');
     });
   });
-  // TEST: for query
 });
