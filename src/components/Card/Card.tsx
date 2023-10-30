@@ -64,6 +64,13 @@ export const Card = ({
     });
   };
 
+  const formatPrice = (price: number): string => {
+    return new Intl.NumberFormat('en-US', {
+      style: 'currency',
+      currency: 'USD',
+    }).format(price);
+  };
+
   return (
     <CardSc data-testid="card">
       <CardMedia title={featuredAsset.name}>
@@ -77,7 +84,7 @@ export const Card = ({
         <Description>{description}</Description>
       </CardContent>
       <CardActions>
-        <Typography>$ {variants[0].price}</Typography>
+        <Typography>{formatPrice(variants[0].price)}</Typography>
         <Button
           onClick={handleAddToOrder}
           label={`Buy ${name}`}
