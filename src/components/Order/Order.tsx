@@ -3,6 +3,7 @@ import { Typography } from '@mui/material';
 import styled from 'styled-components';
 import { GET_ACTIVE_ORDER } from '../../graphql/queries';
 import { ActiveOrder } from '../../types';
+import { formatPrice } from '../../utils/formatPrice';
 
 const Container = styled.div`
   display: grid;
@@ -13,8 +14,6 @@ const Container = styled.div`
     margin-right: 1.4rem;
   }
 `;
-
-// TODO: Improve how info is displayed
 
 export const Order = () => {
   const { loading, error, data } = useQuery<ActiveOrder>(GET_ACTIVE_ORDER);
@@ -35,7 +34,7 @@ export const Order = () => {
     );
   }
 
-  if (!data || !data.activeOrder) {
+  if (!data?.activeOrder) {
     return (
       <Container data-testid="order">
         <Typography variant="h5">No active order available</Typography>
@@ -49,7 +48,9 @@ export const Order = () => {
         <Typography variant="h5" component="h1">
           Total:
         </Typography>
-        <Typography variant="subtitle1">$ {data.activeOrder.total}</Typography>
+        <Typography variant="subtitle1">
+          {formatPrice(data.activeOrder.total)}
+        </Typography>
       </>
     </Container>
   );
