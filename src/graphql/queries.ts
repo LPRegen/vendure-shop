@@ -1,20 +1,24 @@
 import { gql } from '@apollo/client';
-import { ORDER_DETAILS } from './fragments';
+import {
+  PRODUCT_DETAILS,
+  ORDER_DETAILS,
+  VARIANT_DETAILS,
+  ASSET_DETAILS,
+} from './fragments';
 
 export const GET_PRODUCT_LIST = gql`
+  ${ASSET_DETAILS}
+  ${PRODUCT_DETAILS}
+  ${VARIANT_DETAILS}
   query get_product_list {
     products(options: { take: 12 }) {
       items {
-        id
-        name
-        description
+        ...ProductDetails
         featuredAsset {
-          source
-          name
+          ...AssetDetails
         }
         variants {
-          id
-          price
+          ...VariantDetails
         }
       }
     }
