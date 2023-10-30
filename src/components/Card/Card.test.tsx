@@ -55,22 +55,21 @@ describe('Card comp', () => {
       const imgEl = screen.getByRole('img') as HTMLImageElement;
       expect(imgEl).toHaveAttribute('alt');
     });
+  });
+  it('render price in human readable format', () => {
+    render(
+      <MockedProvider mocks={cardMockSuccess} addTypename={false}>
+        <Card
+          name={cardMockSuccess[0].result.data.name}
+          id={cardMockSuccess[0].result.data.id}
+          featuredAsset={cardMockSuccess[0].result.data.featuredAsset}
+          description={cardMockSuccess[0].result.data.description}
+          variants={cardMockSuccess[0].result.data.variants}
+        />
+      </MockedProvider>
+    );
 
-    it('render price in human readable format', () => {
-      render(
-        <MockedProvider mocks={cardMockSuccess} addTypename={false}>
-          <Card
-            name={cardMockSuccess[0].result.data.name}
-            id={cardMockSuccess[0].result.data.id}
-            featuredAsset={cardMockSuccess[0].result.data.featuredAsset}
-            description={cardMockSuccess[0].result.data.description}
-            variants={cardMockSuccess[0].result.data.variants}
-          />
-        </MockedProvider>
-      );
-
-      const price = screen.getByText('$129,900.00');
-      expect(price).toBeInTheDocument();
-    });
+    const price = screen.getByText('$129,900.00');
+    expect(price).toBeInTheDocument();
   });
 });
