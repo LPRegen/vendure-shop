@@ -39,6 +39,13 @@ const CardActions = styled(CardActionsMui)({
   },
 });
 
+const CardTitle = styled(Typography)({
+  display: '-webkit-box',
+  overflow: 'hidden',
+  WebkitBoxOrient: 'vertical',
+  WebkitLineClamp: 1,
+});
+
 const Description = styled(Typography)({
   display: '-webkit-box',
   overflow: 'hidden',
@@ -72,9 +79,9 @@ export const Card = ({
       </CardMedia>
 
       <CardContent>
-        <Typography variant="h5" component="h2">
+        <CardTitle variant="h5" component="h2" title={name}>
           {name}
-        </Typography>
+        </CardTitle>
         <Description>{description}</Description>
       </CardContent>
       <CardActions>
