@@ -4,7 +4,7 @@ import { Button } from './Button';
 
 describe('Button comp', () => {
   it('Render component', () => {
-    render(<Button>Add to cart</Button>);
+    render(<Button label="add to cart">Add to cart</Button>);
     const el = screen.getByRole('button');
     expect(el).toBeInTheDocument();
   });
@@ -52,5 +52,12 @@ describe('Button comp', () => {
 
     await user.click(el);
     expect(handleClick).toHaveBeenCalled();
+  });
+
+  it('Has label', () => {
+    render(<Button label="add to cart">Add to cart</Button>);
+
+    const el = screen.getByRole('button');
+    expect(el).toBeInTheDocument();
   });
 });
