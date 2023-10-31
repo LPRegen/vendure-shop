@@ -57,7 +57,7 @@ describe('Button comp', () => {
   it('Has label', () => {
     render(<Button label="add to cart">Add to cart</Button>);
 
-    const el = screen.getByRole('button');
+    const el = screen.getByLabelText('add to cart');
     expect(el).toBeInTheDocument();
   });
 });
