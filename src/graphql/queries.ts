@@ -12,7 +12,7 @@ export const GET_PRODUCT_LIST = gql`
   ${VARIANT_DETAILS}
 
   query get_product_list {
-    products(options: { take: 12 }) {
+    products(options: { take: 54 }) {
       items {
         ...ProductDetails
         featuredAsset {
