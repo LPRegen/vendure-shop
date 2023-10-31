@@ -2,7 +2,7 @@ import { ButtonBase, styled } from '@mui/material';
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
-  label: string;
+  label?: string;
 }
 
 const ButtonSc = styled(ButtonBase)({
