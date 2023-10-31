@@ -13,9 +13,6 @@ import { CardProps } from '../../types';
 import { formatPrice } from '../../utils/formatPrice';
 import { Button } from '../Button/Button';
 
-// FIX: Style or remove
-const CardSc = styled(CardMui)({});
-
 const CardMedia = styled(CardMediaMui)({
   height: '200px',
   '> img': {
@@ -73,7 +70,7 @@ export const Card = ({
   };
 
   return (
-    <CardSc data-testid="card">
+    <CardMui data-testid="card">
       <CardMedia title={featuredAsset.name}>
         <img src={featuredAsset.source} alt={featuredAsset.name} />
       </CardMedia>
@@ -94,6 +91,6 @@ export const Card = ({
           Buy
         </Button>
       </CardActions>
-    </CardSc>
+    </CardMui>
   );
 };
