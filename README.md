@@ -1,12 +1,12 @@
-# Santex Frontend Challenge
+# Challenge
 
 ## Table of contents
 
-- [Goals](##Goals)
-- [Requirements](##Requirements)
+- [Goals](#goals)
+- [Requirements](#requirements)
 - [Technologies](#technologies)
-- [API documentation](##Api-documentation)
-- Installation
+- [API documentation](#api-documentation)
+- [Installation](#installation)
 
 ## Goals
 
@@ -31,8 +31,33 @@
 
 ## Technologies
 
+- `React`
+- `TypeScript`
+- `Apollo Client`
+- `Graphql`
+- `Mui`
+- `Styled Components`
+- `Jest`
+- `React Testing Library`
+
 ## API documentation
 
 Even thought the app is already connected to a `Graphql` endpoint, the trainee can find here all required information about `queries`, `mutations` and `Graphql` types.
 
 - https://www.vendure.io/docs/graphql-api/shop/
+
+## Installation
+
+- First clone the project.
+
+- Navigate to the folder and execute:
+
+  > `pnpm install`
+
+- To start the development server, run:
+
+  > `pnpm dev`
+
+- To execute tests, run:
+
+  > `pnpm test`
