@@ -1,11 +1,11 @@
 import { MockedProvider } from '@apollo/client/testing';
 import { render, screen } from '@testing-library/react';
-import { Order } from './Order';
 import {
   orderMockError,
   orderMockNullOrder,
   orderMockSuccess,
 } from '../../mocks/orderMock';
+import { Order } from './Order';
 
 describe('Order comp', () => {
   it('Renders component', async () => {
